@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
-// Define your document schema
 const documentSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true  // Enforce that the document has a title
+    required: true  
   },
   content: {
-    type: mongoose.Schema.Types.Mixed,  // Store Quill Delta objects or any type
+    type: mongoose.Schema.Types.Mixed,  
     required: true
   },
   lastModified: {
@@ -20,7 +19,6 @@ const documentSchema = new mongoose.Schema({
   }
 });
 
-// Create the model from the schema
 const Document = mongoose.model('Document', documentSchema);
 
 module.exports = Document;

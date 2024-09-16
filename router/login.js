@@ -14,9 +14,7 @@ router.get("/register",async (req,res,next)=>{
 router.post('/register', async (req, res) => {
     const Post_Login = await Login.find();
     const { name, email, password, department } = req.body;
-    console.log('Request body:', req.body); // Log the incoming request body
-
-    // Validate request body
+    console.log('Request body:', req.body); 
     if (!name || !email || !password || !department) {
       return res.status(400).json({ error: 'All fields are required' });
     }

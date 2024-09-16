@@ -18,11 +18,9 @@ router.get('/documents', (req, res) => {
 router.post('/documents', async (req, res) => {
     const { title, owner } = req.body;
     try {
-      // Create a new empty document in MongoDB
       const newDocument = new Document({ title, content:"",owner });
       const savedDocument = await newDocument.save();
   
-      // Return the document's _id as the documentId
       res.status(201).json({ documentId: savedDocument._id });
     } catch (error) {
       res.status(500).json({ error: 'Failed to create document' }); 
