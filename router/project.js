@@ -45,7 +45,7 @@ router.put('/project/:projectId/requirement/:requirementId', async (req, res) =>
         requirement.status = status;
         await project.save();
 
-        res.status(200).json(project);
+        res.status(200).json({ message: 'Status updated successfully!', project });
     } catch (err) {
         console.error('Error during status update:', err);  // Log the actual error
         res.status(500).json({ error: err.message });
